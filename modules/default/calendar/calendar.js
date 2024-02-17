@@ -46,7 +46,7 @@ Module.register("calendar", {
 		calendars: [
 			{
 				symbol: "calendar-alt",
-				url: "https://www.calendarlabs.com/templates/ical/US-Holidays.ics"
+				url: "https://calendar.google.com/calendar/ical/et.ee%23holiday%40group.v.calendar.google.com/public/basic.ics"
 			}
 		],
 		customEvents: [
