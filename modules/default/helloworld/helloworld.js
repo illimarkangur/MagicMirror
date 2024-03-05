@@ -7,7 +7,7 @@
 Module.register("helloworld", {
 	// Default module config.
 	defaults: {
-		text: "Hello World!"
+		text: "Tere Maailm!"
 	},
 
 	getTemplate () {
