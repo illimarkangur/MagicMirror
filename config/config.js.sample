@@ -90,6 +90,12 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			}
+
+			module: "paevajaanud",
+			position: "bottom_right",
+			config: {
+				
+			}
 		},
 	]
 };
