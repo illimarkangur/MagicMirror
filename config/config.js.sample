@@ -76,12 +76,6 @@ let config = {
 			}
 		},
 		{
-
-			module: "paevajaanud",
-			position: "bottom_right",
-			
-		},
-		{
 			module: "newsfeed",
 			position: "bottom_bar",
 			config: {
@@ -98,6 +92,12 @@ let config = {
 			}
 
 		},
+		{
+
+			module: "paevajaanud",
+			position: "bottom_right",
+
+		}
 	]
 };
 
