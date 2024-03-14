@@ -2,7 +2,11 @@ Module.register("temperatuur", {
 
     // vaikimisi config
     defaults: {
-        sensor: {DHT11},
+        sensor: {
+          type: "DHT11",
+          pin: 4,
+          library: require("dht-sensor")
+        },
         textColor: "white",
       },
   
