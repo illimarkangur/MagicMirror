@@ -43,7 +43,7 @@ let config = {
 					{
 						fetchInterval: 7 * 24 * 60 * 60 * 1000,
 						symbol: "calendar-check",
-						url: "https://calendar.google.com/calendar/ical/et.ee%23holiday%40group.v.calendar.google.com/public/basic.ics"
+						url: "https://calendar.google.com/calendar/embed?src=23f0ddc3b395dc602aa3d3804c1d564a82f269c12d8e50d0fc70732f802c1da8%40group.calendar.google.com&ctz=Europe%2FTallinn"
 					}
 				]
 			}
@@ -56,7 +56,7 @@ let config = {
 			module: "weather",
 			position: "top_right",
 			config: {
-				weatherProvider: "yr",
+				weatherProvider: "openweathermap",
 				type: "current",
 				location: "Tallinn",
 				locationID: "588409", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
@@ -68,7 +68,7 @@ let config = {
 			position: "top_right",
 			header: "Ilma Ennustus",
 			config: {
-				weatherProvider: "yr",
+				weatherProvider: "openweathermap",
 				type: "forecast",
 				location: "Tallinn",
 				locationID: "588409", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
