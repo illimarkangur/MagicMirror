@@ -48,10 +48,14 @@ let config = {
 				]
 			}
 		},
+
+		/*
 		{
 			module: "compliments",
 			position: "lower_third"
 		},
+		*/
+
 		{
 			module: "weather",
 			position: "top_right",
@@ -95,7 +99,7 @@ let config = {
 		{
 
 			module: "paevajaanud",
-			position: "bottom_right",
+			position: "lower_third",
 
 		}
 	]

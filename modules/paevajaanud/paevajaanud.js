@@ -24,9 +24,10 @@ Module.register("paevajaanud", {
     },
 
     getDaysLeft: function (i) {
-        const date = new Date.now(); // leiab hetkeaja millisekundites
+        const date = Date.now(); // leiab hetkeaja millisekundites
+        const targetDate = new Date(this.config.dates.date[i])
         const futureDate = this.config.dates.date[i].getTime(); // leiab tuleviku kuupäeva millisekundites
-        const difference = futureDate - date; // leiab ajavahemiku millisekundites
+        const difference = targetDate - date; // leiab ajavahemiku millisekundites
         return Math.round(difference/(1000 * 60 * 60 * 24)) // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
     }
   });
