@@ -2,11 +2,6 @@ Module.register("temperatuur", {
 
     // vaikimisi config
     defaults: {
-        sensor: {
-          type: "DHT11",
-          pin: 4,
-          library: require("dht-sensor")
-        },
         textColor: "white",
         interval: 1000, //iga sekund
       },
@@ -18,9 +13,11 @@ Module.register("temperatuur", {
     // mooduli elemendid
     start: function () {
       var self = this;
+      
       setInterval(function() {
         self.updateDom();
       }, this.config.interval); 
+
       self.sensor = require("node-dht-sensor");
       return sensor;
     },

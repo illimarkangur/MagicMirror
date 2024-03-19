@@ -49,12 +49,11 @@ let config = {
 			}
 		},
 
-		/*
+		/* ära võetud ajutiselt!
 		{
 			module: "compliments",
 			position: "lower_third"
 		},
-		*/
 
 		{
 			module: "weather",
@@ -79,6 +78,7 @@ let config = {
 				apiKey: "KNYQJjaj6YlD3j2j0EF6rE3o5yQRasP2"
 			}
 		},
+		*/
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -94,6 +94,12 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			}
+
+		},
+		{
+
+			module: "temperatuur",
+			position: "top_right",
 
 		},
 		{
