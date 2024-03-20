@@ -47,7 +47,11 @@ Module.register("paevajaanud", {
 
       for (var i = 0; i <3; i++) {
         var text = document.createTextNode("this.config.dates[0].name" + ": " + i + " päeva.");
+
         wrapper.appendChild(text);
+        
+        var br = document.createElement("br");
+        wrapper.appendChild(br)
       }
      /*
       //teeb uue rea iga kuupäeva puhul
