@@ -4,7 +4,7 @@ Module.register("paevajaanud", {
     defaults: {
         textColor: "white",
         dates:[
-          // sisesta kuupäev formaadis 'dd/mm/yyyy'
+          // sisesta kuupäev formaadis 'dd/MM/yyyy'
             {name:"Aasta 2025", date:"01/01/2025"}, 
             {name:"Aasta 2026", date:"01/01/2026"}
         ]
@@ -14,7 +14,7 @@ Module.register("paevajaanud", {
         // leiab hetkeaja millisekundites
           const date = Date.now(); 
           // leiab tuleviku kuupäeva millisekundites
-          const targetDate = new Date(dateFormat(this.config.dates.date[i]));
+          const targetDate = new Date(dateFormat(this.config.dates[i].date));
           // leiab ajavahemiku millisekundites
           const difference = targetDate - date; 
           // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
@@ -40,7 +40,7 @@ Module.register("paevajaanud", {
       for (let i = 0; i < this.config.dates.length; i++) {
           var countdownSpan = document.createElement("span");
 
-          countdowntext = document.createTextNode(this.config.dates.name[i] + ": " + getDaysLeft(i) + " päeva.");
+          countdowntext = document.createTextNode(this.config.dates[i].date + ": " + getDaysLeft(i) + " päeva.");
           countdownSpan.appendChild(countdowntext);
           
           var br = document.createElement("br");

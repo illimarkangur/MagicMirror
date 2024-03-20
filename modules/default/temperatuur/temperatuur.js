@@ -44,10 +44,11 @@ Module.register("temperatuur", {
       wrapper.style.color = this.config.textColor;
   
       var span = document.createElement("span");
-      temp.innerHTML = document.createTextNode(this.getTemperature() + "°C");
+      
+      temp = document.createTextNode(this.getTemperature() + "°C");
       span.appendChild(temp);
 
-      niisk.innerHTML = document.createTextNode(" - " + this.getHumidity() + "%");
+      niisk = document.createTextNode(" - " + this.getHumidity() + "%");
       span.appendChild(niisk);
 
       wrapper.appendChild(span);
