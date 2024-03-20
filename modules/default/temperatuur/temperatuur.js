@@ -42,7 +42,7 @@ Module.register("temperatuur", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      wrapper.innerHTML = getTemperature() + "°C" + " - " + getHumidity() + "%";
+      wrapper.innerHTML = this.getTemperature() + "°C" + " - " + this.getHumidity() + "%";
       /*
       text = document.createTextNode(this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
       wrapper.appendChild(text);
