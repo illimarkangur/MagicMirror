@@ -3,10 +3,8 @@ Module.register("temperatuur", {
     // vaikimisi config
     defaults: {
         textColor: "white",
-        interval: 1000, //iga sekund
       },
 
-    sensor: require("node-dht-sensor"),
     temperature: null,
     humidity: null,
   
@@ -14,12 +12,13 @@ Module.register("temperatuur", {
     start: function () {
       setInterval(function() {
         this.updateDom();
-      }, this.config.interval); 
+      }, 1000); //iga sekund
     },
     
     readFromSensor: function () {
       //sensorilt lugemis funktsioon
-      this.sensor.read(11, 4, function(err, temperature, humidity) {
+      var sensor = require("node-dht-sensor");
+      sensor.read(11, 4, function(err, temperature, humidity) {
         if (!err) {
           return {temperature: temperature, humidity: humidity};
         } else {
@@ -27,7 +26,7 @@ Module.register("temperatuur", {
         }
       });
     },
-    
+
     // Loe andurilt temperatuurinäit
     getTemperature: function () {
       return this.readFromSensor().temperature;
