@@ -17,22 +17,7 @@ Module.register("temperatuur", {
         this.updateDom();
       }, this.config.interval); 
     },
-
-    getDom: function () {
-      var wrapper = document.createElement("div");
-      wrapper.style.color = this.config.textColor;
-  
-      var tempSpan = document.createElement("span");
-      tempSpan.innerHTML = "Temperatuur: " + this.getTemperature() + "°C";
-      wrapper.appendChild(tempSpan);
-  
-      var niiskSpan = document.createElement("span");
-      niiskSpan.innerHTML = "Niiskus: " + this.getHumidity() + "%";
-      wrapper.appendChild(niiskSpan);
-  
-      return wrapper;
-    },
-  
+    
     // Loe andurilt temperatuurinäit
     getTemperature: function () {
       return this.readFromSensor().temperature;
@@ -44,6 +29,7 @@ Module.register("temperatuur", {
     },
 
     readFromSensor: function () {
+      //sensorilt lugemis funktsioon
       this.config.sensor.read(11, 4, function(err, temperature, humidity) {
         if (!err) {
           return {temperature: temperature, humidity: humidity};
@@ -51,6 +37,21 @@ Module.register("temperatuur", {
           // errori korral ei tee midagi ehk jääb viimatise õnnestunud lugemise väärtused
         }
       });
+    },
+    
+    getDom: function () {
+      var wrapper = document.createElement("div");
+      wrapper.style.color = this.config.textColor;
+  
+      var span = document.createElement("span");
+      temp.innerHTML = document.createTextNode(this.getTemperature() + "°C");
+      span.appendChild(temp);
+
+      niisk.innerHTML = document.createTextNode(" - " + this.getHumidity() + "%");
+      span.appendChild(niisk);
+
+      wrapper.appendChild(span);
+      return wrapper;
     }
 });
   
