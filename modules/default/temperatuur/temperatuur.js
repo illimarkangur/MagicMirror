@@ -4,6 +4,7 @@ Module.register("temperatuur", {
     defaults: {
         textColor: "white",
         interval: 1000, //iga sekund
+        sensor: require("node-dht-sensor"),
       },
 
     sensor: null,
@@ -12,14 +13,9 @@ Module.register("temperatuur", {
   
     // mooduli elemendid
     start: function () {
-      var self = this;
-
       setInterval(function() {
-        self.updateDom();
-      }, self.config.interval); 
-
-      self.sensor = require("node-dht-sensor");
-      return sensor;
+        this.updateDom();
+      }, this.config.interval); 
     },
 
     getDom: function () {
@@ -39,20 +35,22 @@ Module.register("temperatuur", {
   
     // Loe andurilt temperatuurinäit
     getTemperature: function () {
-      return this.read().temperature;
+      return this.readFromSensor().temperature;
     },
   
     // Loe andurilt niiskusenäit
     getHumidity: function () {
-      return this.read().humidity;
+      return this.readFromSensor().humidity;
     },
 
-    read: function () {
-      this.sensor.read(11, 4, function(err, temperature, humidity) {
+    readFromSensor: function () {
+      this.config.sensor.read(11, 4, function(err, temperature, humidity) {
         if (!err) {
           return {temperature: temperature, humidity: humidity};
-        } else {};
-      }
+        } else {
+          // errori korral ei tee midagi ehk jääb viimatise õnnestunud lugemise väärtused
+        }
+      });
     }
 });
   
