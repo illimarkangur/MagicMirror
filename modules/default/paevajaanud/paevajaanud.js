@@ -49,7 +49,7 @@ Module.register("paevajaanud", {
         {name:"Aasta 2026", date:"01/01/2026"}
       ];
 
-      for (let i of dates) {
+      for (let i of dates.length) {
         var text = document.createTextNode(i + " päeva.");
 
         wrapper.appendChild(text);
@@ -63,7 +63,7 @@ Module.register("paevajaanud", {
           var countdowntext = document.createTextNode(this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva.");
           
           wrapper.appendChild(countdowntext);
-          
+
           var br = document.createElement("br");
           wrapper.appendChild(br)
 
