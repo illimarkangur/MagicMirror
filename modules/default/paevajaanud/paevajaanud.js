@@ -20,12 +20,12 @@ Module.register("paevajaanud", {
       getDaysLeft: function (i) {
           const date = Date.now(); 
 
-          var formattedDate = dateFormat(this.config.dates[i].date)
-          // leiab tuleviku kuupäeva millisekundites
+          var formattedDate = dateFormat(this.config.dates[i].date)          
           const targetDate = new Date(formattedDate);
-          // leiab ajavahemiku millisekundites
+
           const difference = targetDate - date; 
-          // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
+
+          // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas  
           return Math.floor(difference/(1000 * 60 * 60 * 24)) 
       },
   
@@ -44,31 +44,15 @@ Module.register("paevajaanud", {
     getDom: function () {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
-      const dates = [        
-        {name:"Aasta 2025", date:"01/01/2025"}, 
-        {name:"Aasta 2026", date:"01/01/2026"}
-      ];
 
-      for (let i=0; i<dates.length; i++) {
-        var text = document.createTextNode(i + " korda");
+      for (let i=0; i < this.config.dates.length; i++) {
+        var text = document.createTextNode(this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva.");
 
         wrapper.appendChild(text);
         
         var br = document.createElement("br");
         wrapper.appendChild(br)
       }
-     /*
-      //teeb uue rea iga kuupäeva puhul
-      for (let i of this.config.dates) {
-          var countdowntext = document.createTextNode(this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva.");
-          
-          wrapper.appendChild(countdowntext);
-
-          var br = document.createElement("br");
-          wrapper.appendChild(br)
-
-        }
-        */
       return wrapper;
     }
   });

@@ -4,10 +4,9 @@ Module.register("temperatuur", {
     defaults: {
         textColor: "white",
         interval: 1000, //iga sekund
-        sensor: require("node-dht-sensor"),
       },
 
-    sensor: null,
+    sensor: require("node-dht-sensor"),
     temperature: null,
     humidity: null,
   
@@ -30,7 +29,7 @@ Module.register("temperatuur", {
 
     readFromSensor: function () {
       //sensorilt lugemis funktsioon
-      this.config.sensor.read(11, 4, function(err, temperature, humidity) {
+      this.sensor.read(11, 4, function(err, temperature, humidity) {
         if (!err) {
           return {temperature: temperature, humidity: humidity};
         } else {
@@ -42,16 +41,10 @@ Module.register("temperatuur", {
     getDom: function () {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
-  
-      var span = document.createElement("span");
-      
-      temp = document.createTextNode(this.getTemperature() + "°C");
-      span.appendChild(temp);
 
-      niisk = document.createTextNode(" - " + this.getHumidity() + "%");
-      span.appendChild(niisk);
+      text = document.createTextNode(this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
+      wrapper.appendChild(text);
 
-      wrapper.appendChild(span);
       return wrapper;
     }
 });
