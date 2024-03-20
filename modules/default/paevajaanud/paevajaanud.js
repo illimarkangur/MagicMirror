@@ -37,7 +37,7 @@ Module.register("paevajaanud", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      var countdowntext = document.createTextNode(this.config.dates[0].date + ": " + getDaysLeft(i) + " päeva.");
+      var countdowntext = document.createTextNode("Sünnipäev" + ": " + "11" + " päeva.");
       wrapper.appendChild(countdowntext);
 
       /*
