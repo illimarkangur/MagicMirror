@@ -13,10 +13,10 @@ Module.register("temperatuur", {
     // mooduli elemendid
     start: function () {
       var self = this;
-      
+
       setInterval(function() {
         self.updateDom();
-      }, this.config.interval); 
+      }, self.config.interval); 
 
       self.sensor = require("node-dht-sensor");
       return sensor;
