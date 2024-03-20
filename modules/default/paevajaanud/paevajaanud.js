@@ -11,10 +11,11 @@ Module.register("paevajaanud", {
       },
   
       getDaysLeft: function (i) {
-        // leiab hetkeaja millisekundites
           const date = Date.now(); 
+
+          var formattedDate = dateFormat(this.config.dates[i].date)
           // leiab tuleviku kuupäeva millisekundites
-          const targetDate = new Date(dateFormat(this.config.dates[i].date));
+          const targetDate = new Date(formattedDate);
           // leiab ajavahemiku millisekundites
           const difference = targetDate - date; 
           // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
@@ -37,7 +38,8 @@ Module.register("paevajaanud", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      var countdowntext = document.createTextNode(this.config.dates[0].date + ": " + getDaysLeft(0) + " päeva.");
+      var name = this.config.dates[0].name;
+      var countdowntext = document.createTextNode(name + ": " + getDaysLeft(0) + " päeva.");
       wrapper.appendChild(countdowntext);
 
       /*
@@ -45,7 +47,7 @@ Module.register("paevajaanud", {
       for (let i of this.config.dates) {
           var countdownSpan = document.createElement("span");
 
-          var countdowntext = document.createTextNode(this.config.dates[i].date + ": " + getDaysLeft(i) + " päeva.");
+          var countdowntext = document.createTextNode(this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva.");
           countdownSpan.appendChild(countdowntext);
           
           var br = document.createElement("br");
