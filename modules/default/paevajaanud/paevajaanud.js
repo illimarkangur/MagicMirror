@@ -9,22 +9,24 @@ Module.register("paevajaanud", {
             {name:"Aasta 2026", date:"01/01/2026"}
         ]
       },
+
+      start: function() {
+        var self = this;
+        setInterval(function() {
+          self.updateDom(); // no speed defined, so it updates instantly.
+        }, 1000); //perform every 1000 milliseconds.
+      },
   
       getDaysLeft: function (i) {
           const date = Date.now(); 
 
-          dates = [
-            {name:"Aasta 2025", date:"01/01/2025"}, 
-            {name:"Aasta 2026", date:"01/01/2026"}
-        ];
-
-          var formattedDate = dateFormat(dates[i].date)
+          var formattedDate = dateFormat(this.config.dates[i].date)
           // leiab tuleviku kuupäeva millisekundites
           const targetDate = new Date(formattedDate);
           // leiab ajavahemiku millisekundites
           const difference = targetDate - date; 
           // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
-          return Math.round(difference/(1000 * 60 * 60 * 24)) 
+          return Math.floor(difference/(1000 * 60 * 60 * 24)) 
       },
   
       //võtab configis kirjutatud dd/MM/yyyy formati ja tõstab selle ümber MM/dd/yyyy formaati, mis on Date() funktsioonis vajalik
@@ -40,18 +42,11 @@ Module.register("paevajaanud", {
 
     // mooduli elemendid ja stiil
     getDom: function () {
-      dates = [
-          {name:"Aasta 2025", date:"01/01/2025"}, 
-          {name:"Aasta 2026", date:"01/01/2026"}
-      ];
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      var name = dates[0].name;
-      var countdowntext = document.createTextNode(name + ": " + getDaysLeft(0) + " päeva.");
-      wrapper.appendChild(countdowntext);
-
-      /*
+      wrapper.innerHTML = this.config.dates[0].name + ": " + getDaysLeft(0) + " päeva.";
+     /*
       //teeb uue rea iga kuupäeva puhul
       for (let i of this.config.dates) {
           var countdownSpan = document.createElement("span");
@@ -65,8 +60,6 @@ Module.register("paevajaanud", {
           wrapper.appendChild(countdownSpan);
         }
         */
-
-
       return wrapper;
     }
   });
