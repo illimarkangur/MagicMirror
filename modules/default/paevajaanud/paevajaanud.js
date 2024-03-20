@@ -44,9 +44,13 @@ Module.register("paevajaanud", {
     getDom: function () {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
+      const dates = [        
+        {name:"Aasta 2025", date:"01/01/2025"}, 
+        {name:"Aasta 2026", date:"01/01/2026"}
+      ];
 
-      for (var i = 0; i <3; i++) {
-        var text = document.createTextNode("this.config.dates[0].name" + ": " + i + " päeva.");
+      for (let i of dates) {
+        var text = document.createTextNode(i + " päeva.");
 
         wrapper.appendChild(text);
         
@@ -56,15 +60,13 @@ Module.register("paevajaanud", {
      /*
       //teeb uue rea iga kuupäeva puhul
       for (let i of this.config.dates) {
-          var countdownSpan = document.createElement("span");
-
           var countdowntext = document.createTextNode(this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva.");
-          countdownSpan.appendChild(countdowntext);
+          
+          wrapper.appendChild(countdowntext);
           
           var br = document.createElement("br");
-          countdownSpan.appendChild(br)
+          wrapper.appendChild(br)
 
-          wrapper.appendChild(countdownSpan);
         }
         */
       return wrapper;
