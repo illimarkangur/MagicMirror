@@ -45,7 +45,7 @@ Module.register("paevajaanud", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      wrapper.innerHTML = this.config.dates[0].name + ": " + getDaysLeft(0) + " päeva.";
+      wrapper.innerHTML = "this.config.dates[0].name" + ": " + "getDaysLeft(0)" + " päeva.";
      /*
       //teeb uue rea iga kuupäeva puhul
       for (let i of this.config.dates) {
