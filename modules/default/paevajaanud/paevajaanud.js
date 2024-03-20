@@ -37,15 +37,15 @@ Module.register("paevajaanud", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      countdowntext = document.createTextNode(this.config.dates[0].date + ": " + getDaysLeft(i) + " päeva.");
+      var countdowntext = document.createTextNode(this.config.dates[0].date + ": " + getDaysLeft(i) + " päeva.");
       wrapper.appendChild(countdowntext);
 
       /*
       //teeb uue rea iga kuupäeva puhul
-      for (let i = 0; i < this.config.dates.length; i++) {
+      for (let i of this.config.dates) {
           var countdownSpan = document.createElement("span");
 
-          countdowntext = document.createTextNode(this.config.dates[i].date + ": " + getDaysLeft(i) + " päeva.");
+          var countdowntext = document.createTextNode(this.config.dates[i].date + ": " + getDaysLeft(i) + " päeva.");
           countdownSpan.appendChild(countdowntext);
           
           var br = document.createElement("br");

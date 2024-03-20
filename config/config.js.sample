@@ -106,8 +106,14 @@ let config = {
 		{
 
 			module: "paevajaanud",
-			position: "lower_third",			
+			position: "bottom_right",			
 			header: "Päeva jäänud",
+			config: {
+				dates:[
+					{name:"Aasta 2025", date:"01/01/2025"}, 
+					{name:"Aasta 2026", date:"01/01/2026"}
+			]
+			}
 
 		}
 	]
