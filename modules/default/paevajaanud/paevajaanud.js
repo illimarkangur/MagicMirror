@@ -13,7 +13,12 @@ Module.register("paevajaanud", {
       getDaysLeft: function (i) {
           const date = Date.now(); 
 
-          var formattedDate = dateFormat(this.config.dates[i].date)
+          dates = [
+            {name:"Aasta 2025", date:"01/01/2025"}, 
+            {name:"Aasta 2026", date:"01/01/2026"}
+        ];
+
+          var formattedDate = dateFormat(dates[i].date)
           // leiab tuleviku kuupäeva millisekundites
           const targetDate = new Date(formattedDate);
           // leiab ajavahemiku millisekundites
@@ -35,10 +40,14 @@ Module.register("paevajaanud", {
 
     // mooduli elemendid ja stiil
     getDom: function () {
+      dates = [
+          {name:"Aasta 2025", date:"01/01/2025"}, 
+          {name:"Aasta 2026", date:"01/01/2026"}
+      ];
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      var name = this.config.dates[0].name;
+      var name = dates[0].name;
       var countdowntext = document.createTextNode(name + ": " + getDaysLeft(0) + " päeva.");
       wrapper.appendChild(countdowntext);
 
