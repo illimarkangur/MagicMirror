@@ -99,7 +99,7 @@ let config = {
 		{
 
 			module: "temperatuur",
-			position: "top_right",			
+			position: "top_right",	
 			header: "Temperatuur",
 
 		},

@@ -17,16 +17,6 @@ Module.register("temperatuur", {
       }, this.config.interval); 
     },
     
-    // Loe andurilt temperatuurinäit
-    getTemperature: function () {
-      return this.readFromSensor().temperature;
-    },
-  
-    // Loe andurilt niiskusenäit
-    getHumidity: function () {
-      return this.readFromSensor().humidity;
-    },
-
     readFromSensor: function () {
       //sensorilt lugemis funktsioon
       this.sensor.read(11, 4, function(err, temperature, humidity) {
@@ -37,6 +27,17 @@ Module.register("temperatuur", {
         }
       });
     },
+    
+    // Loe andurilt temperatuurinäit
+    getTemperature: function () {
+      return this.readFromSensor().temperature;
+    },
+  
+    // Loe andurilt niiskusenäit
+    getHumidity: function () {
+      return this.readFromSensor().humidity;
+    },
+
     
     getDom: function () {
       var wrapper = document.createElement("div");
