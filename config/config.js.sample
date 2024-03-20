@@ -43,7 +43,7 @@ let config = {
 					{
 						fetchInterval: 7 * 24 * 60 * 60 * 1000,
 						symbol: "calendar-check",
-						url: "https://calendar.google.com/calendar/embed?src=23f0ddc3b395dc602aa3d3804c1d564a82f269c12d8e50d0fc70732f802c1da8%40group.calendar.google.com&ctz=Europe%2FTallinn"
+						url: "https://calendar.google.com/calendar/ical/23f0ddc3b395dc602aa3d3804c1d564a82f269c12d8e50d0fc70732f802c1da8%40group.calendar.google.com/private-43c4bdaa840c5e8ab69f47e6d2dca249/basic.ics"
 					}
 				]
 			}
@@ -99,13 +99,15 @@ let config = {
 		{
 
 			module: "temperatuur",
-			position: "top_right",
+			position: "top_right",			
+			header: "Temperatuur",
 
 		},
 		{
 
 			module: "paevajaanud",
-			position: "lower_third",
+			position: "lower_third",			
+			header: "Päeva jäänud",
 
 		}
 	]

@@ -37,6 +37,11 @@ Module.register("paevajaanud", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
+      countdowntext = document.createTextNode(this.config.dates[0].date + ": " + getDaysLeft(i) + " päeva.");
+      wrapper.appendChild(countdowntext);
+
+      /*
+      //teeb uue rea iga kuupäeva puhul
       for (let i = 0; i < this.config.dates.length; i++) {
           var countdownSpan = document.createElement("span");
 
@@ -48,6 +53,8 @@ Module.register("paevajaanud", {
 
           wrapper.appendChild(countdownSpan);
         }
+        */
+
 
       return wrapper;
     }
