@@ -49,8 +49,8 @@ Module.register("paevajaanud", {
         {name:"Aasta 2026", date:"01/01/2026"}
       ];
 
-      for (let i of dates.length) {
-        var text = document.createTextNode(i + " päeva.");
+      for (let i=0; i<dates.length; i++) {
+        var text = document.createTextNode(i + " korda");
 
         wrapper.appendChild(text);
         
