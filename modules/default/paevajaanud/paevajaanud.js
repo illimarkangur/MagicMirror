@@ -9,6 +9,10 @@ Module.register("paevajaanud", {
     ],
   },
 
+  getScripts: function() {
+		return ["moment.js"];
+	},
+  
   start: function () {
     var self = this;
     setInterval(function () {
@@ -18,13 +22,13 @@ Module.register("paevajaanud", {
 
   getDaysLeft: function (i) {
     const date = Date.now();
-
-    var formattedDate = dateFormat(this.config.dates[i].date);
+    
+    const formattedDate = dateFormat(this.config.dates[i].date);
     const targetDate = new Date(formattedDate);
-
+    
     const difference = targetDate - date;
-
-    // tagastab päevade arvu, jagades ajavahet millisekundite arvuga ühes päevas
+    
+    // tagastab päevade arvu, jagades ajavahemiku millisekundite arvuga ühes päevas
     return Math.floor(difference / (1000 * 60 * 60 * 24));
   },
 
@@ -44,8 +48,9 @@ Module.register("paevajaanud", {
     wrapper.style.color = this.config.textColor;
 
     for (let i in this.config.dates) {
+      var days = getDaysLeft(i);
       var text = document.createTextNode(
-        this.config.dates[i].name + ": " + getDaysLeft(i) + " päeva."
+        this.config.dates[i].name + ": " + days + " päeva pärast"
       );
 
       wrapper.appendChild(text);
