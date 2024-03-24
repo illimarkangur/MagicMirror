@@ -15,6 +15,7 @@ Module.register("temperatuur", {
       }, 1000); //iga sekund
     },
     
+    /*
     readFromSensor: function () {
       //sensorilt lugemis funktsioon
       var sensor = require("node-dht-sensor");
@@ -26,27 +27,28 @@ Module.register("temperatuur", {
         }
       });
     },
-
-    // Loe andurilt temperatuurinäit
-    getTemperature: function () {
-      return this.readFromSensor().temperature;
-    },
-  
-    // Loe andurilt niiskusenäit
-    getHumidity: function () {
-      console.log(this.readFromSensor().humidity);
-      return this.readFromSensor().humidity;
-    },
+    */    
 
     
     getDom: function () {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
-      text = document.createTextNode(this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
-      wrapper.appendChild(text);
+      var element = document.createElement("p");
+      element.id = "text";
+
+      wrapper.appendChild(element);
       
       return wrapper;
-    }
+    },
+
+    socketNotificationReceived: function(notification, payload) {
+      switch(notification) {
+        case "READ":
+          var elem = document.getElementById("text");
+          elem.innerHTML = payload;
+          break
+      }
+    },
 });
   
