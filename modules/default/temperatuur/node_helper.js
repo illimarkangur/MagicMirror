@@ -8,6 +8,7 @@ module.exports = NodeHelper.create({
     this.sensor = require("node-dht-sensor");
   },
 
+
   readFromSensor: function () {
     //sensorilt lugemis funktsioon    
     this.sensor.read(11, 4, function(err, temperature, humidity) {
@@ -33,7 +34,7 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function(notification) {
     switch(notification) {
       case "READ_FROM_SENSOR":
-        var payload = ("this.getTemperature() + °C +  -  + this.getHumidity() + %");
+        var payload = (this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
         this.sendSocketNotification("READ", payload);
         break;
     }

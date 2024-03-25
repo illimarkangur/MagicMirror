@@ -4,25 +4,17 @@ Module.register("temperatuur", {
     defaults: {
         textColor: "white",
       },
-
-    temperature: null,
-    humidity: null,
-
     
     // mooduli elemendid
     start: function () {
-      setInterval(function() {
-        this.updateDom();
-        Log.log("Temp");
-      }, 1000); //iga sekund
+
     },
 
     notificationReceived: function(notification) {
       switch(notification) {
         case "DOM_OBJECTS_CREATED":
-          Log.log('Dom ojektid tehtud - temperatuuri moodul');
 
-          var timer = setInterval(()=>{
+          setInterval(()=>{
             this.updateDom(500);
           }, 1000);
           break;
@@ -48,6 +40,7 @@ Module.register("temperatuur", {
       var wrapper = document.createElement("div");
       wrapper.style.color = this.config.textColor;
 
+      this.sendSocketNotification("READ_FROM_SENSOR");
       var element = document.createElement("p");
       element.id = "text";
 
