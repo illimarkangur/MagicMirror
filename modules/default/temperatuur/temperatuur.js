@@ -45,8 +45,8 @@ Module.register("temperatuur", {
     socketNotificationReceived: function(notification, payload) {
       switch(notification) {
         case "READ":
-          var elem = document.getElementById("text");
-          elem.innerHTML = payload;
+          var p = document.getElementById("text");
+          p.innerHTML = payload;
           break
       }
     },
