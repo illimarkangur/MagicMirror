@@ -33,7 +33,7 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function(notification) {
     switch(notification) {
       case "READ_FROM_SENSOR":
-        var payload = (this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
+        var payload = ("this.getTemperature() + °C +  -  + this.getHumidity() + %");
         this.sendSocketNotification("READ", payload);
         break;
     }
