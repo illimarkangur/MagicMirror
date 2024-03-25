@@ -7,15 +7,15 @@ module.exports = NodeHelper.create({
     this.humidity = '';
   },
 
-
+ /*
   readFromSensor: function () {
     //sensorilt lugemise funktsioon
     var sensor = require("node-dht-sensor")    
     sensor.read(11, 4, function(err, temperature, humidity) {
       if (!err) {
-        return {temperature: temperature, humidity: humidity}
-      } else {
-        // errori korral ei tee midagi ehk jääb viimatise õnnestunud lugemise väärtused
+        return {temperature: temperature, 
+                humidity: humidity
+        };
       }
     });
   },
@@ -28,6 +28,27 @@ module.exports = NodeHelper.create({
   // Loe andurilt niiskusenäit
   getHumidity: function () {
     return this.readFromSensor().humidity;
+  },
+  */
+  readFromSensor: function () {
+      return new Promise((resolve, reject) => {
+          var sensor = require("node-dht-sensor");
+          sensor.read(11, 4, function (err, temperature, humidity) {
+              if (!err) {
+                  resolve({ temperature, humidity });
+              } else {
+                  reject(err);
+              }
+          });
+      });
+  },
+
+  getTemperature: function () {
+      return this.readFromSensor().then(data => data.temperature);
+  },
+
+  getHumidity: function () {
+      return this.readFromSensor().then(data => data.humidity);
   },
 
   socketNotificationReceived: function(notification) {
