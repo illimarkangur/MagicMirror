@@ -5,13 +5,13 @@ module.exports = NodeHelper.create({
   start: function() {
     this.temperature = '';
     this.humidity = '';
-    this.sensor = require("node-dht-sensor");
   },
 
 
   readFromSensor: function () {
-    //sensorilt lugemis funktsioon    
-    this.sensor.read(11, 4, function(err, temperature, humidity) {
+    //sensorilt lugemise funktsioon
+    var sensor = require("node-dht-sensor")    
+    sensor.read(11, 4, function(err, temperature, humidity) {
       if (!err) {
         return {temperature: temperature, humidity: humidity}
       } else {
@@ -27,7 +27,6 @@ module.exports = NodeHelper.create({
 
   // Loe andurilt niiskusenäit
   getHumidity: function () {
-    Log.log(this.readFromSensor().humidity);
     return this.readFromSensor().humidity;
   },
 
