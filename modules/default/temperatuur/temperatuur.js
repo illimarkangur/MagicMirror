@@ -7,12 +7,26 @@ Module.register("temperatuur", {
 
     temperature: null,
     humidity: null,
-  
+
+    
     // mooduli elemendid
     start: function () {
       setInterval(function() {
         this.updateDom();
+        Log.log("Temp");
       }, 1000); //iga sekund
+    },
+
+    notificationReceived: function(notification) {
+      switch(notification) {
+        case "DOM_OBJECTS_CREATED":
+          Log.log('Dom ojektid tehtud - temperatuuri moodul');
+
+          var timer = setInterval(()=>{
+            this.updateDom(500);
+          }, 1000);
+          break;
+      }
     },
     
     /*
