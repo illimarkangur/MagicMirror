@@ -25,7 +25,7 @@ Module.register("paevajaanud", {
     const difference = targetDate - date;
     
     // tagastab päevade arvu, jagades ajavahemiku millisekundite arvuga ühes päevas
-    return Math.up(difference / (1000 * 60 * 60 * 24));
+    return Math.ceil(difference / (1000 * 60 * 60 * 24));
   },
 
   //võtab configis kirjutatud dd/MM/yyyy formati ja tõstab selle ümber MM/dd/yyyy formaati, mis on Date() funktsioonis vajalik
