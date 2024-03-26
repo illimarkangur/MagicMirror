@@ -16,7 +16,7 @@ Module.register("temperatuur", {
 
           setInterval(()=>{
             this.updateDom();
-          }, 2000);
+          }, 1000);
           break;
       }
     },
