@@ -49,8 +49,13 @@ Module.register("paevajaanud", {
 
     for (let i in this.config.dates) {
       var days = this.getDaysLeft(i);
-      var text = document.createTextNode(
-        this.config.dates[i].name + ": " + days + " päeva pärast"
+      if (days>0) {
+        var text = document.createTextNode(
+          this.config.dates[i].name + " on " + days + " päeva pärast"
+      } else {
+        var text = document.createTextNode(
+          this.config.dates[i].name + " on " + days + " päeva pärast"
+      }
       );
 
       wrapper.appendChild(text);
