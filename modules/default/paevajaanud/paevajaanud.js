@@ -12,7 +12,7 @@ Module.register("paevajaanud", {
   start: function () {
     var self = this;
     setInterval(function () {
-      self.updateDom(); // no speed defined, so it updates instantly.
+      self.updateDom();
     }, 1000*60*5); //iga 5 min tagant uuendab
   },
 
@@ -25,7 +25,7 @@ Module.register("paevajaanud", {
     const difference = targetDate - date;
     
     // tagastab päevade arvu, jagades ajavahemiku millisekundite arvuga ühes päevas
-    return Math.floor(difference / (1000 * 60 * 60 * 24));
+    return Math.up(difference / (1000 * 60 * 60 * 24));
   },
 
   //võtab configis kirjutatud dd/MM/yyyy formati ja tõstab selle ümber MM/dd/yyyy formaati, mis on Date() funktsioonis vajalik
