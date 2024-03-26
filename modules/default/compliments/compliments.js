@@ -8,13 +8,14 @@ Module.register("compliments", {
 	// Module config defaults.
 	defaults: {
 		compliments: {
-			anytime: ["Heihopsti!"],
-			morning: ["Tere hommikust!", "Naudi päeva!", "Kuidas magasid?"],
-			afternoon: ["Tere päevast!", "Hei!", "Näed hea välja!"],
-			evening: ["Tsauki!", "Õhtust!", "Ae, ae!"],
-			"....-01-01": ["Head uut aastat!"]
+			anytime: ["Heihopsti!", "tips"],
+			morning: ["Tere hommikust!", "CARPE DIEM!", "Kuidas magasid?", "slay", "oled kingitus #inspireeriv", "Choose happiness!" ],
+			afternoon: ["Tere päevast!", "Hei!", "Näed hea välja!", "kuidas mu lemmik mimmul läheb?"],
+			evening: ["Tsauki!", "Õhtust!", "Ae, ae!", "kallisoled!", "Hope."],
+			"....-01-01": ["Head uut aastat!"],
+			"....-12-08": ["imelist ketlinipäeva"],
 		},
-		updateInterval: 30000,
+		updateInterval: 5000,
 		remoteFile: null,
 		fadeSpeed: 4000,
 		morningStartTime: 3,
