@@ -13,7 +13,7 @@ Module.register("paevajaanud", {
     var self = this;
     setInterval(function () {
       self.updateDom(); // no speed defined, so it updates instantly.
-    }, 1000); //perform every 1000 milliseconds.
+    }, 1000*60*5); //iga 5 min tagant uuendab
   },
 
   getDaysLeft: function (i) {
