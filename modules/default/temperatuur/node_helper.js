@@ -26,7 +26,7 @@ module.exports = NodeHelper.create({
   readFromSensor: function (callback) {
     this.dhtSensor.read(11, 4, (err, temperature, humidity) => { 
       if (err) {
-        console.error('Error reading sensor:', err);
+        console.log('Error reading sensor:', err);
         if (callback) { 
           callback(err); 
         }
@@ -35,17 +35,6 @@ module.exports = NodeHelper.create({
       callback(temperature, humidity);
     });
   },
-
-  // Loe andurilt temperatuurinäit
-  getTemperature: function () {
-    return this.readFromSensor().temperature;
-  },
-
-  // Loe andurilt niiskusenäit
-  getHumidity: function () {
-    return this.readFromSensor().humidity;
-  },
-
 
   socketNotificationReceived: function(notification) {
     switch(notification) {

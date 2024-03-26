@@ -15,8 +15,8 @@ Module.register("temperatuur", {
         case "DOM_OBJECTS_CREATED":
 
           setInterval(()=>{
-            this.updateDom(500);
-          }, 1000);
+            this.updateDom();
+          }, 2000);
           break;
       }
     },
