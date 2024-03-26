@@ -35,6 +35,7 @@ Module.register("temperatuur", {
     },
 
     socketNotificationReceived: function(notification, payload) {
+      console.log(notification, payload);
       switch(notification) {
         case "READ":
           var p = document.getElementById("text");
