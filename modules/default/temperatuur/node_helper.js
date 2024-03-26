@@ -29,8 +29,9 @@ module.exports = NodeHelper.create({
           callback(err); 
         }
         return;
+      } else {
+        callback(temperature, humidity);
       }
-      callback(temperature, humidity);
     });
   },
 
