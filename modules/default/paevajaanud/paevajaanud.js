@@ -23,7 +23,7 @@ Module.register("paevajaanud", {
   getDaysLeft: function (i) {
     const date = Date.now();
     
-    const formattedDate = dateFormat(this.config.dates[i].date);
+    const formattedDate = this.dateFormat(this.config.dates[i].date);
     const targetDate = new Date(formattedDate);
     
     const difference = targetDate - date;
