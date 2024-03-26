@@ -48,7 +48,7 @@ Module.register("paevajaanud", {
     wrapper.style.color = this.config.textColor;
 
     for (let i in this.config.dates) {
-      var days = getDaysLeft(i);
+      var days = this.getDaysLeft(i);
       var text = document.createTextNode(
         this.config.dates[i].name + ": " + days + " päeva pärast"
       );
