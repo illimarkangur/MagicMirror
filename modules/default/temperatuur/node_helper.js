@@ -2,6 +2,9 @@ var NodeHelper = require("node_helper")
 
 module.exports = NodeHelper.create({
 
+  temperature: null,
+  humidity: null,
+
   start: function() {
     this.dhtSensor = require('node-dht-sensor'); 
   },
@@ -10,7 +13,10 @@ module.exports = NodeHelper.create({
     this.dhtSensor.read(11, 4, (err, temperature, humidity) => { 
       if (err) {
         console.log('Error reading sensor:', err);
+        callback(this.temperature, this.humidity);
       } else {
+        this.temperature = temperature;
+        this.humidity = humidity;
         callback(temperature, humidity);
       }
     });
