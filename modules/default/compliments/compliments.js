@@ -10,7 +10,7 @@ Module.register("compliments", {
 		compliments: {
 			anytime: ["Heihopsti!"],
 			morning: ["Tere hommikust!", "Naudi päeva!", "Kuidas magasid?"],
-			afternoon: ["Terepäevast!", "Hei!", "Näed hea välja!"],
+			afternoon: ["Tere päevast!", "Hei!", "Näed hea välja!"],
 			evening: ["Tsauki!", "Õhtust!", "Ae, ae!"],
 			"....-01-01": ["Head uut aastat!"]
 		},

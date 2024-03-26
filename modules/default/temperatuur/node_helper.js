@@ -13,7 +13,6 @@ module.exports = NodeHelper.create({
     this.dhtSensor.read(11, 4, (err, temperature, humidity) => { 
       if (err) {
         console.log('Error reading sensor:', err);
-        console.log(this.temperature, this.humidity);
         callback(this.temperature, this.humidity);
       } else {
         this.temperature = temperature;
