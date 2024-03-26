@@ -9,7 +9,7 @@ Module.register("temperatuur", {
     start: function () {
       setInterval(()=>{
         this.sendSocketNotification("READ_FROM_SENSOR");
-      }, 2000);
+      }, 1000);
 
     },
 
