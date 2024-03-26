@@ -50,7 +50,7 @@ Module.register("paevajaanud", {
           this.config.dates[i].name + " on " + days + " päeva pärast");
       } else {
         var text = document.createTextNode(
-          this.config.dates[i].name + " oli " + abs(days) + " päeva eest");
+          this.config.dates[i].name + " oli " + Math.abs(days) + " päeva eest");
       }
 
       wrapper.appendChild(text);
