@@ -5,8 +5,11 @@ module.exports = NodeHelper.create({
   start: function() {
     this.temperature = '';
     this.humidity = '';
+    this.dhtSensor = require('node-dht-sensor'); 
   },
 
+
+  /*
   readFromSensor: function () {
     //sensorilt lugemise funktsioon
     var sensor = require("node-dht-sensor")    
@@ -16,6 +19,20 @@ module.exports = NodeHelper.create({
                 humidity: humidity,
         };
       }
+    });
+  },
+  */
+
+  readFromSensor: function (callback) {
+    this.dhtSensor.read(11, 4, (err, temperature, humidity) => { 
+      if (err) {
+        console.error('Error reading sensor:', err);
+        if (callback) { 
+          callback(err); 
+        }
+        return;
+      }
+      callback(temperature, humidity);
     });
   },
 
@@ -33,8 +50,14 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function(notification) {
     switch(notification) {
       case "READ_FROM_SENSOR":
-        var payload = (this.getTemperature() + "°C" + " - " + this.getHumidity() + "%");
-        this.sendSocketNotification("READ", payload);
+        this.readFromSensor((temperature, humidity) => {
+          if (temperature !== undefined && humidity !== undefined) {
+            const payload = `${temperature}°C - ${humidity}%`;
+            this.sendSocketNotification("READ", payload);
+          } else {
+            console.log('Error reading sensor values (callback)');
+          }
+        });
         break;
     }
   },
