@@ -49,12 +49,12 @@ let config = {
 			}
 		},
 
-		/* ära võetud ajutiselt!
 		{
 			module: "compliments",
 			position: "lower_third"
 		},
 
+		/* ära võetud ajutiselt!
 		{
 			module: "weather",
 			position: "top_right",
@@ -111,7 +111,7 @@ let config = {
 			config: {
 				dates:[
 					{name:"Aasta 2025", date:"01/01/2025"}, 
-					{name:"Aasta 2026", date:"01/01/2026"}
+					{name:"Aasta 2024", date:"01/01/2024"}
 			]
 			}
 
