@@ -5,14 +5,10 @@ Module.register("paevajaanud", {
     dates: [
       // sisesta kuupäev formaadis 'dd/MM/yyyy'
       { name: "Aasta 2025", date: "01/01/2025" },
-      { name: "Aasta 2026", date: "01/01/2026" },
+      { name: "Aasta 2024", date: "01/01/2024" },
     ],
   },
 
-  getScripts: function() {
-		return ["moment.js"];
-	},
-  
   start: function () {
     var self = this;
     setInterval(function () {
@@ -51,12 +47,11 @@ Module.register("paevajaanud", {
       var days = this.getDaysLeft(i);
       if (days>0) {
         var text = document.createTextNode(
-          this.config.dates[i].name + " on " + days + " päeva pärast"
+          this.config.dates[i].name + " on " + days + " päeva pärast");
       } else {
         var text = document.createTextNode(
-          this.config.dates[i].name + " on " + days + " päeva pärast"
+          this.config.dates[i].name + " oli " + days + " päeva eest");
       }
-      );
 
       wrapper.appendChild(text);
 
