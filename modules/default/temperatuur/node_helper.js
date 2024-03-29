@@ -9,6 +9,7 @@ module.exports = NodeHelper.create({
     this.dhtSensor = require('node-dht-sensor'); 
   },
 
+  //sensori lugemise funktioon, errori korral edastab eelmise väärtuse
   readFromSensor: function (callback) {
     this.dhtSensor.read(11, 4, (err, temperature, humidity) => { 
       if (err) {
@@ -22,6 +23,7 @@ module.exports = NodeHelper.create({
     });
   },
 
+  // saades mooduli faililt teavituse, kutsub sensori lugemise funktsiooni
   socketNotificationReceived: function(notification) {
     switch(notification) {
       case "READ_FROM_SENSOR":
