@@ -4,7 +4,7 @@
  * By Michael Teeuw https://michaelteeuw.nl
  * MIT Licensed.
  */
-const defaultModules = ["alert", "calendar", "clock", "compliments", "helloworld", "newsfeed", "updatenotification", "weather"];
+const defaultModules = ["alert", "calendar", "clock", "compliments", "helloworld", "newsfeed", "updatenotification", "weather", "paevajaanud", "temperatuur"];
 
 /*************** DO NOT EDIT THE LINE BELOW ***************/
 if (typeof module !== "undefined") {

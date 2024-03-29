@@ -9,10 +9,10 @@ Module.register("compliments", {
 	defaults: {
 		compliments: {
 			anytime: ["Heihopsti!"],
-			morning: ["Tere hommikust!", "Naudi oma päeva!", "Kuidas magasid?"],
-			afternoon: ["Terepäevast!", "Hei!", "Näed hea välja!"],
-			evening: ["Tsauki!", "Õhtust!", "Ae, ae!"],
-			"....-01-01": ["Head uut aastat!"]
+			morning: ["Tere hommikust!", "CARPE DIEM!", "Kuidas magasid?", "oled kingitus #inspireeriv"],
+			afternoon: ["Tere päevast!", "Hei!", "Näed hea välja!"],
+			evening: ["Tsauki!", "Õhtust!", "Ae, ae!", "kallisoled!"],
+			"....-01-01": ["Head uut aastat!"],
 		},
 		updateInterval: 30000,
 		remoteFile: null,
