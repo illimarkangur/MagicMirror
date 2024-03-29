@@ -54,31 +54,6 @@ let config = {
 			position: "lower_third"
 		},
 
-		/* ära võetud ajutiselt!
-		{
-			module: "weather",
-			position: "top_right",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "current",
-				location: "Tallinn",
-				locationID: "588409", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "KNYQJjaj6YlD3j2j0EF6rE3o5yQRasP2"
-			}
-		},
-		{
-			module: "weather",
-			position: "top_right",
-			header: "Ilma Ennustus",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "forecast",
-				location: "Tallinn",
-				locationID: "588409", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "KNYQJjaj6YlD3j2j0EF6rE3o5yQRasP2"
-			}
-		},
-		*/
 		{
 			module: "newsfeed",
 			position: "bottom_bar",
@@ -94,8 +69,8 @@ let config = {
 				broadcastNewsFeeds: true,
 				broadcastNewsUpdates: true
 			}
-
 		},
+
 		{
 
 			module: "temperatuur",
@@ -103,6 +78,7 @@ let config = {
 			header: "Temperatuur",
 
 		},
+		
 		{
 
 			module: "paevajaanud",
